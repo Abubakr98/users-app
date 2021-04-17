@@ -10,10 +10,12 @@ const Users = () => {
     dispatch(fetchUsers());
   }, []);
   const users = useSelector((state) => state.users.users);
-  console.log(users);
+  const currentPage = useSelector((state) => state.users.currentPage);
   if (!users.length) {
     return <p className='text-center'>users don`t exist</p>;
   }
+  const usersPerPage = 5
+  const list = users.slice(usersPerPage * (currentPage - 1), usersPerPage * ((currentPage + 1) - 1))
   return (
     <div className='users'>
       <div className='container'>
@@ -30,7 +32,7 @@ const Users = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => <User key={user.id} user={user} />)}
+                {list.map((user) => <User key={user.id} user={user} />)}
               </tbody>
             </table>
             <Pagination users={users} />
