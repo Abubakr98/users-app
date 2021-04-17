@@ -17,42 +17,41 @@ function pg(users, currentPage, dispatch, setCurrentPage) {
       </li>,
     ];
   }
-  return res
+  return res;
 }
 
 const Pagination = ({ users }) => {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.users.currentPage);
- 
-  const res=pg(users, currentPage, dispatch, setCurrentPage)
-  
-  const previous = currentPage === 1 ? 'disabled' : ''
+
+  const res = pg(users, currentPage, dispatch, setCurrentPage);
+
+  const previous = currentPage === 1 ? 'disabled' : '';
   const setPrevious = (isDisbled) => {
     if (isDisbled) return;
-    dispatch(setCurrentPage(currentPage-1))
-  }
+    dispatch(setCurrentPage(currentPage - 1));
+  };
 
-  const next = currentPage !== 1 && users.length % currentPage === 0 ? 'disabled' : ''
+  const next = currentPage !== 1 && (users.length / 5) <= currentPage ? 'disabled' : '';
   const setNext = (isDisbled) => {
-    if (isDisbled) return
-    dispatch(setCurrentPage(currentPage+1))
-  }
+    if (isDisbled) return;
+    dispatch(setCurrentPage(currentPage + 1));
+  };
   return (
     <nav>
       <ul className='pagination'>
         <li
           className={`page-item ${previous}`}
-          onClick={() => setPrevious(!!previous)}>
+          onClick={() => setPrevious(!!previous)}
+        >
           <span className='page-link btn btn-success'>Previous</span>
         </li>
         {res}
-        <li
-          className={`page-item ${next}`}
-          onClick={() => setNext(!!next)}>
-          <span className='page-link btn btn-success' >Next</span>
+        <li className={`page-item ${next}`} onClick={() => setNext(!!next)}>
+          <span className='page-link btn btn-success'>Next</span>
         </li>
       </ul>
-    </nav >
+    </nav>
   );
 };
 
