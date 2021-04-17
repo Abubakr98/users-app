@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../redux/actions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import User from './user'
 import Pagination from './pagination'
 
 const Users = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+  
   const users = useSelector((state) => state.users.users);
   const currentPage = useSelector((state) => state.users.currentPage);
   if (!users.length) {

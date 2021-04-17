@@ -3,10 +3,10 @@ import { GET_USERS, REQUEST_USERS } from './types';
 import api from '../api';
 
 export function* sagaWatcher() {
-  yield takeEvery(REQUEST_USERS, sagaWorker);
+  yield takeEvery(REQUEST_USERS, getUsers);
 }
 
-function* sagaWorker() {
+function* getUsers() {
   try {
     const payload = yield call(fetchUsers);
     yield put({ type: GET_USERS, payload });
