@@ -1,13 +1,16 @@
 import React from 'react'
+import {
+  Link
+} from "react-router-dom";
 
 function Header() {
   return (
     <header className='App-header'>
-      <nav className='navbar fixed-top navbar-expand-lg navbar-dark bg-primary'>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='/'>
+          <Link className='navbar-brand' to='/'>
             Home
-          </a>
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -22,9 +25,9 @@ function Header() {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link active' aria-current='page' href='/'>
+                <Link className='nav-link active' aria-current='page' to='/create-user'>
                   Create user
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
