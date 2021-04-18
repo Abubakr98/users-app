@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from './redux/actions';
-import UserForm from './pages/UserForm';
+import CreateUser from './pages/CreateUser';
+import UpdateUser from './pages/UpdateUser';
 
 function App() {
 
@@ -23,7 +24,10 @@ function App() {
         <Header />
         <Switch>
           <Route path="/create-user">
-            <UserForm />
+            <CreateUser />
+          </Route>
+          <Route path="/update-user/:id">
+            <UpdateUser />
           </Route>
           <Route path="/">
             <Users />

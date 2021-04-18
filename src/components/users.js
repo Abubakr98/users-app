@@ -17,7 +17,7 @@ const Users = () => {
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-xl-8'>
-            <table className="table caption-top">
+            <table className="table caption-top table-hover">
               <caption>Users</caption>
               <thead>
                 <tr>

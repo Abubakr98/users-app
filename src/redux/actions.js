@@ -1,13 +1,19 @@
-import { REQUEST_USERS, SET_CURRENT_PAGE, SET_USERS } from './types';
+import { REQUEST_USERS, SET_CURRENT_PAGE, SET_USER, SET_UPDATED_USER } from './types';
 
 export function fetchUsers() {
   return {
     type: REQUEST_USERS,
   };
 }
-export function setUsers(data) {
+export function setUser(data) {
   return {
-    type: SET_USERS,
+    type: SET_USER,
+    payload: data
+  };
+}
+export function setUpdatedUser(data) {
+  return {
+    type: SET_UPDATED_USER,
     payload: data
   };
 }
