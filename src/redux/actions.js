@@ -5,9 +5,10 @@ export function fetchUsers() {
     type: REQUEST_USERS,
   };
 }
-export function setUsers() {
+export function setUsers(data) {
   return {
     type: SET_USERS,
+    payload: data
   };
 }
 export function setCurrentPage(page) {
