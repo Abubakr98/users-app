@@ -10,13 +10,13 @@ const User = ({ user }) => {
   const hendler = (e) => {
     if (e.target.tagName === 'TD') history.push(`/update-user/` + user.id);
   };
-  const deleteHendler = async (id)=>{
+  const deleteHendler = async (id) => {
     const res = await deleteUser(id);
     dispatch({
       type: GET_USERS,
-      payload: res
+      payload: res,
     });
-  }
+  };
   return (
     <tr key={user.id} onClick={hendler} className='c-pointer'>
       <th scope='row'>{user.id}</th>
@@ -24,10 +24,11 @@ const User = ({ user }) => {
       <td>{user.surname}</td>
       <td>{user.desc}</td>
       <td>
-        <button 
-        type='button' 
-        className='btn btn-danger' 
-        onClick={()=>deleteHendler(user.id)}>
+        <button
+          type='button'
+          className='btn btn-danger'
+          onClick={() => deleteHendler(user.id)}
+        >
           Delete
         </button>
       </td>

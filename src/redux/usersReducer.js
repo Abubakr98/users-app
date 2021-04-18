@@ -1,15 +1,19 @@
-import { GET_USERS, SET_CURRENT_PAGE, SET_USER, SET_UPDATED_USER } from './types';
+import {
+  GET_USERS,
+  SET_CURRENT_PAGE,
+  SET_USER,
+  SET_UPDATED_USER,
+} from './types';
 
 const initialState = {
   users: [],
   currentPage: 1,
 };
 
-
-function updateUser(users,payload){
-  const index = users.findIndex(u => u.id === payload.id)
+function updateUser(users, payload) {
+  const index = users.findIndex((u) => u.id === payload.id);
   users.splice(index, 1, payload);
-  return [...users]
+  return [...users];
 }
 
 export const usersReducer = (state = initialState, action) => {

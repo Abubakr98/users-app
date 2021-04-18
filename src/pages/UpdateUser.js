@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useForm from '../hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUpdatedUser, showLoader, hideLoader  } from '../redux/actions';
+import { setUpdatedUser, showLoader, hideLoader } from '../redux/actions';
 import { put, getUser } from '../api/queries';
 import Form from '../components/form';
-import {Loader} from '../components/loader'
+import { Loader } from '../components/loader';
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.app.loading)
+  const loading = useSelector((state) => state.app.loading);
   const { id } = useParams();
   const { bind, value, clear } = useForm({
     name: '',
@@ -22,7 +22,7 @@ const UpdateUser = () => {
     }
     get();
   }, []);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(showLoader());
@@ -32,7 +32,7 @@ const UpdateUser = () => {
     dispatch(hideLoader());
   };
   if (loading) {
-    return <Loader />
+    return <Loader />;
   }
   return (
     <div className='create-user'>

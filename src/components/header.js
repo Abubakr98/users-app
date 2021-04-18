@@ -1,7 +1,5 @@
-import React from 'react'
-import {
-  Link
-} from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -25,7 +23,11 @@ function Header() {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <Link className='nav-link active' aria-current='page' to='/create-user'>
+                <Link
+                  className='nav-link active'
+                  aria-current='page'
+                  to='/create-user'
+                >
                   Create user
                 </Link>
               </li>

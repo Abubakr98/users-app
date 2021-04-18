@@ -1,8 +1,8 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import axios from 'axios'
+import axios from 'axios';
 import { GET_USERS, REQUEST_USERS } from './types';
 import api from '../api';
-import {hideLoader, showLoader} from './actions'
+import { hideLoader, showLoader } from './actions';
 
 export function* sagaWatcher() {
   yield takeEvery(REQUEST_USERS, getUsers);
@@ -10,13 +10,13 @@ export function* sagaWatcher() {
 
 function* getUsers() {
   try {
-    yield put(showLoader())
+    yield put(showLoader());
     const payload = yield call(fetchUsers);
     yield put({ type: GET_USERS, payload });
-    yield put(hideLoader())
+    yield put(hideLoader());
   } catch (e) {
     yield put(console.log('Что-то пошло не так', e.message));
-    yield put(hideLoader())
+    yield put(hideLoader());
   }
 }
 
