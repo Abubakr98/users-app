@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.c-pointer{
+.c-pointer {
   cursor: pointer;
+}
+.loader {
+  display: flex;
+  justify-content: center;
 }

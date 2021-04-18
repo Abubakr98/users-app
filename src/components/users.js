@@ -2,16 +2,20 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import User from './user'
 import Pagination from './pagination'
+import {Loader} from './loader'
 
 const Users = () => {
   
   const users = useSelector((state) => state.users.users);
   const currentPage = useSelector((state) => state.users.currentPage);
-  if (!users.length) {
-    return <p className='text-center'>users don`t exist</p>;
-  }
+  const loading = useSelector(state => state.app.loading)
   const usersPerPage = 5
   const list = users.slice(usersPerPage * (currentPage - 1), usersPerPage * ((currentPage + 1) - 1))
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <div className='users'>
       <div className='container'>
