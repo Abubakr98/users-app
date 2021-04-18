@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Form = ({ handleSubmit, onChange, value, clear }) => {
   return (
@@ -64,4 +65,12 @@ const Form = ({ handleSubmit, onChange, value, clear }) => {
     </div>
   );
 };
+
+Form.propTypes = {
+  handleSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.object,
+  clear: PropTypes.func,
+};
+
 export default Form;

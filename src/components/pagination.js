@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from '../redux/actions';
+import PropTypes from 'prop-types';
 
 function pg(users, currentPage, dispatch, setCurrentPage) {
   let res = [];
@@ -55,5 +56,7 @@ const Pagination = ({ users }) => {
     </nav>
   );
 };
-
+Pagination.propTypes = {
+  users: PropTypes.array,
+};
 export default Pagination;

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteUser } from '../api/queries';
 import { GET_USERS } from '../redux/types';
+import PropTypes from 'prop-types';
 
 const User = ({ user }) => {
   const history = useHistory();
@@ -34,5 +35,8 @@ const User = ({ user }) => {
       </td>
     </tr>
   );
+};
+User.propTypes = {
+  user: PropTypes.object,
 };
 export default User;
