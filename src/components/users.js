@@ -11,7 +11,7 @@ const Users = () => {
   const usersPerPage = 5;
   const list = users.slice(
     usersPerPage * (currentPage - 1),
-    usersPerPage * (currentPage + 1 - 1)
+    usersPerPage * (currentPage)
   );
 
   if (loading) {

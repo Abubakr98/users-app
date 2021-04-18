@@ -32,9 +32,9 @@ const Pagination = ({ users }) => {
     if (isDisbled) return;
     dispatch(setCurrentPage(currentPage - 1));
   };
-
+ 
   const next =
-    currentPage !== 1 || users.length / 5 <= currentPage ? 'disabled' : '';
+    users.length / 5 <= currentPage ? 'disabled' : '';
   const setNext = (isDisbled) => {
     if (isDisbled) return;
     dispatch(setCurrentPage(currentPage + 1));
