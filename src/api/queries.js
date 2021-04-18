@@ -1,35 +1,38 @@
+import axios from 'axios';
 import api from './index';
 
 export async function post(data) {
-  const response = await fetch(api.USERS, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-  return await response.json();
+  try {
+    const response = await axios.post(api.USERS, data);
+    return await response.data;
+  } catch (e) {
+    console.log(console.log('Что-то пошло не так', e.message));
+  }
 }
 
 export async function put(id, data) {
-  const response = await fetch(`${api.USER}/${id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
-  return await response.json();
+  try {
+    const response = await axios.put(`${api.USER}/${id}`, data);
+    return await response.data;
+  } catch (e) {
+    console.log(console.log('Что-то пошло не так', e.message));
+  }
 }
 
-export async function deleteUser(id, data) {
-  const response = await fetch(`${api.USER}/${id}`, {
-    method: 'DELETE',
-  });
-  return await response.json();
+export async function deleteUser(id) {
+  try {
+    const response = await axios.delete(`${api.USER}/${id}`);
+    return await response.data;
+  } catch (e) {
+    console.log(console.log('Что-то пошло не так', e.message));
+  }
 }
 
 export async function getUser(id) {
-  const response = await fetch(`${api.USER}/${id}`);
-  return await response.json();
+  try {
+    const response = await axios.get(`${api.USER}/${id}`);
+    return await response.data;
+  } catch (e) {
+    console.log(console.log('Что-то пошло не так', e.message));
+  }
 }

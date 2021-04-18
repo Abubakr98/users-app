@@ -1,4 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
+import axios from 'axios'
 import { GET_USERS, REQUEST_USERS } from './types';
 import api from '../api';
 
@@ -16,6 +17,6 @@ function* getUsers() {
 }
 
 async function fetchUsers() {
-  const response = await fetch(api.USERS);
-  return await response.json();
+  const response = await axios.get(api.USERS);
+  return await response.data;
 }
