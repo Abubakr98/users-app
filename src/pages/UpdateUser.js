@@ -24,7 +24,6 @@ const UpdateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await put(id, { ...value, avatar: e.target.avatar.files[0] });
-    console.log(res);
     dispatch(setUpdatedUser(res));
     clear();
   };

@@ -11,7 +11,7 @@ function* getUsers() {
     const payload = yield call(fetchUsers);
     yield put({ type: GET_USERS, payload });
   } catch (e) {
-    yield put(console.log('Что-то пошло не так'));
+    yield put(console.log('Что-то пошло не так', e.message));
   }
 }
 

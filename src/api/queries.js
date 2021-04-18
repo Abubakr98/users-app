@@ -22,7 +22,14 @@ export async function put(id, data) {
   return await response.json();
 }
 
+export async function deleteUser(id, data) {
+  const response = await fetch(`${api.USER}/${id}`, {
+    method: 'DELETE',
+  });
+  return await response.json();
+}
+
 export async function getUser(id) {
-    const response = await fetch(`${api.USER}/${id}`);
-    return await response.json();
-  }
+  const response = await fetch(`${api.USER}/${id}`);
+  return await response.json();
+}

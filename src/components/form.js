@@ -50,7 +50,7 @@ const Form = ({handleSubmit, onChange, value, clear}) => {
                 <button
                   type="submit"
                   className="btn btn-primary btn-lg me-3"
-                >create</button>
+                >confirm</button>
                 <button
                   type='reset'
                   className="btn btn-danger btn-lg"
